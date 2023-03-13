@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  type: 
+  participants: 1
+  price: 9.99
+  link: MyString
+  key: 1
+  accessibility: 9.99
+
+two:
+  name: MyString
+  type: 
+  participants: 1
+  price: 9.99
+  link: MyString
+  key: 1
+  accessibility: 9.99
