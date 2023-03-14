@@ -1,18 +1,7 @@
 <%= form_with model: @activity do |form| %>
   <div>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
-    <% @activity.errors.full_messages_for(:name).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-
-  <div>
     <%= form.label :category %><br>
-    <%= form.select :category, ['charity', 'cooking', 'music', 'diy', 'education', 'social', 'busywork', 'recreational', 'relaxation'] %>
-    <% @activity.errors.full_messages_for(:category).each do |message| %>
-      <div><%= mesessage %></div>
-    <% end %>
+    <%= form.select :category, ['charity', 'cooking', 'music', 'diy', 'education', 'social', 'busywork', 'recreational', 'relaxation'], {include_blank: true} %>
   </div>
 
   <div>

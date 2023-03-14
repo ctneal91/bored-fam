@@ -1,4 +1,5 @@
 class ActivitiesController < ApplicationController
+  include HTTParty
   def index
     @activities = Activity.all
   end
@@ -12,11 +13,15 @@ class ActivitiesController < ApplicationController
   end
 
   def create
-    @activity = Activity.new(activity_params)
+    call_bored_api
+    response = HTTParty.get("https://www.boredapi.com/api/activity?participants=#{@participants}")
+    puts response.parsed_response["activity"]
+    @activity = Activity.new(@fetched_params)
 
     if @activity.save
       redirect_to @activity
     else
+      puts @activity.errors.inspect
       render :new, status: :unprocessable_entity
     end
   end
@@ -45,5 +50,28 @@ class ActivitiesController < ApplicationController
   private
     def activity_params
       params.require(:activity).permit(:name, :category, :participants, :price, :accessibility)
+    end
+
+    def call_bored_api
+      # request = build_bored_api_request
+      response = HTTParty.get("https://www.boredapi.com/api/activity?").parsed_response
+      puts response.inspect
+      @fetched_params = {
+        name: response["activity"],
+        category: response["type"],
+        participants: ["participants"],
+        price: response["price"],
+        link: response["link"],
+        key: response["key"],
+        accessibility: response["accessibility"]
+      }
+    end
+
+    def build_bored_api_request
+      request = ""
+      request += "?participants=#{params[:participants]}" unless params[:participants].blank?
+      request += "?type=#{params[:category]}" unless params[:participants].blank?
+      request += "?price=#{params[:price]}" unless params[:price].blank?
+      request += "?price=#{params[:accessibility]}" unless params[:accessibility].blank?
     end
 end
