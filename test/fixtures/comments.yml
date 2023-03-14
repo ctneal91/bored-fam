@@ -1,0 +1,9 @@
+Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  body: "This looks so fun."
+  activity_id: 1
+
+two:
+  body: "Kinda hard to do."
+  activity_id: 2
