@@ -1,0 +1,10 @@
+<div class="header card">
+	<h1><%= @activity.name %></h1>
+</div>
+
+<ul>
+	<li><%= link_to "Edit", edit_activity_path(@activity) %></li>
+	<li><%= link_to "Delete", activity_path(@activity),
+			data: {turbo_method: :delete, 
+				   turbo_confirm: "Are you sure?"} %></li>
+</ul>

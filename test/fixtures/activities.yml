@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  type: charity
+  participants: 1
+  price: 0.8
+  link: www.google.com
+  key: 1
+  accessibility: 1.0
+
+two:
+  name: MyString2
+  type: cooking
+  participants: 1
+  price: 0.1
+  link: www.wikipedia.org
+  key: 2
+  accessibility: 0.7
