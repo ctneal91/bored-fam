@@ -21,6 +21,20 @@ class ActivitiesController < ApplicationController
     end
   end
 
+   def edit
+    @activity = Activity.find(params[:id])
+  end
+
+  def update
+    @activity = Activity.find(params[:id])
+
+    if @activity.update(activity_params)
+      redirect_to @activity
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
     def activity_params
       params.require(:activity).permit(:name, :category, :participants, :price, :accessibility)
