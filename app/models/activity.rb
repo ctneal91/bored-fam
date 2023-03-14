@@ -1,6 +1,8 @@
 class Activity < ApplicationRecord
     @allowed_categories = %w(charity cooking music diy education social busywork recreational relaxation)
 
+    has_many :comments
+    
 	validates :name, presence: true
 	validates :category, presence: true,
                          inclusion: { in: @allowed_categories, message:  "%{value.capitalize} is not a valid category."}
