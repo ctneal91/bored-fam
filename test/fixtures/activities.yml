@@ -2,18 +2,18 @@
 
 one:
   name: MyString
-  type: 
+  type: charity
   participants: 1
-  price: 9.99
-  link: MyString
+  price: 0.8
+  link: www.google.com
   key: 1
-  accessibility: 9.99
+  accessibility: 1.0
 
 two:
-  name: MyString
-  type: 
+  name: MyString2
+  type: cooking
   participants: 1
-  price: 9.99
-  link: MyString
-  key: 1
-  accessibility: 9.99
+  price: 0.1
+  link: www.wikipedia.org
+  key: 2
+  accessibility: 0.7
