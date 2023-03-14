@@ -3,7 +3,7 @@
 <ul>
 	<% @activities.each do |activity| %>
 		<li class="card">
-			<h2><%= link_to activity.namem article %></h2>
-		<li class="card">
+			<h2><%= link_to activity.name, activity %></h2>
+		</li>
 	<% end %>
 </ul>

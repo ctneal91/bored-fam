@@ -8,11 +8,11 @@ class ActivitiesController < ApplicationController
   end
 
   def new
-    @article = Article.new
+    @activity = Activity.new
   end
 
-  def create
-    @activitiy = Activity.new(activity_params)
+ def create
+    @activity = Activity.new(activity_params)
 
     if @activity.save
       redirect_to @activity
@@ -23,6 +23,6 @@ class ActivitiesController < ApplicationController
 
   private
     def activity_params
-      params.require(:activity).permit(:name, :type, :participants, :price, :accessibility)
+      params.require(:activity).permit(:name, :category, :participants, :price, :accessibility)
     end
 end
