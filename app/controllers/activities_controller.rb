@@ -11,7 +11,7 @@ class ActivitiesController < ApplicationController
     @activity = Activity.new
   end
 
- def create
+  def create
     @activity = Activity.new(activity_params)
 
     if @activity.save
@@ -21,7 +21,7 @@ class ActivitiesController < ApplicationController
     end
   end
 
-   def edit
+  def edit
     @activity = Activity.find(params[:id])
   end
 
