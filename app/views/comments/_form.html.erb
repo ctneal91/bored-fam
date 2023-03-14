@@ -1,0 +1,9 @@
+<%= form_with model: [ @activity, @activity.comments.build ] do |form| %>
+  <p>
+    <%= form.label :body, class: "hidden" %><br>
+    <%= form.text_area :body %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
