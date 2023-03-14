@@ -1,5 +1,9 @@
-<% @activities.each do |activity| %>
-	<div class="card">
-		<h1><%= activity.name %></h1>
-	<div class="card">
-<% end %>
+<h1>Activities</h1>
+
+<ul>
+	<% @activities.each do |activity| %>
+		<li class="card">
+			<h2><%= link_to activity.namem article %></h2>
+		<li class="card">
+	<% end %>
+</ul>

@@ -1,0 +1,32 @@
+<h1>New Activity</h1>
+
+<%= form_with model: @activity do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :type %><br>
+    <%= form.text_field :type %>
+  </div>
+
+  <div>
+    <%= form.label :participants %><br>
+    <%= form.integer :participants %>
+  </div>
+
+  <div>
+    <%= form.label :price %><br>
+    <%= form.decimal :price %>
+  </div>
+
+  <div>
+    <%= form.label :accessibility %><br>
+    <%= form.decimal :accessibility %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
