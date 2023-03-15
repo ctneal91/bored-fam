@@ -1,5 +1,8 @@
 class ActivitiesController < ApplicationController
+  before_action :require_user_logged_in
+  
   include HTTParty
+
   def index
     @activities = Activity.all
   end
