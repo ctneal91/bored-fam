@@ -2,9 +2,11 @@
 
 <ul>
 	<% @activities.each do |activity| %>
-		<li class="card">
-			<h2><%= link_to activity.name, activity %></h2>
-		</li>
+		<% if activity.user_id == Current.user.id %>
+			<li class="card">
+				<h2><%= link_to activity.name, activity %></h2>
+			</li>
+		<% end %>
 	<% end %>
 </ul>
 

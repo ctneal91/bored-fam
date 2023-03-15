@@ -79,7 +79,8 @@ class ActivitiesController < ApplicationController
         price: @response["price"],
         link: @response["link"],
         key: @response["key"],
-        accessibility: @response["accessibility"]
+        accessibility: @response["accessibility"],
+        user_id: Current.user.id
       }
     end
 end
