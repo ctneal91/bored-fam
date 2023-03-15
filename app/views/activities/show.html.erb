@@ -1,11 +1,17 @@
 <div class="header card">
 	<h1><%= @activity.name %></h1>
+
+	<h3>Participants: <%= @activity.participants %></h3>
+	<h3>Link: <%= @activity.link %></h3>
+	<h3>Category: <%= @activity.category %></h3>
+	<h3>Price: <%= @activity.price %></h3>
+	<h3>Accessibility: <%= @activity.accessibility %></h3>
 </div>
 
 <h2>Comments</h2>
 <%= render @activity.comments %>
 
-<h2>Add a comment:</h2>
+<h3>Add a comment:</h3>
 <%= render "comments/form" %>
 
 <ul>
