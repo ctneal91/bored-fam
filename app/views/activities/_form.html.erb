@@ -1,18 +1,7 @@
 <%= form_with model: @activity do |form| %>
   <div>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
-    <% @activity.errors.full_messages_for(:name).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-
-  <div>
     <%= form.label :category %><br>
-    <%= form.select :category, ['charity', 'cooking', 'music', 'diy', 'education', 'social', 'busywork', 'recreational', 'relaxation'] %>
-    <% @activity.errors.full_messages_for(:category).each do |message| %>
-      <div><%= mesessage %></div>
-    <% end %>
+    <%= form.select :category, ['charity', 'cooking', 'music', 'diy', 'education', 'social', 'busywork', 'recreational', 'relaxation'], {include_blank: true} %>
   </div>
 
   <div>
@@ -25,7 +14,7 @@
 
   <div>
     <%= form.label :price %><br>
-    <%= form.number_field :price, in: 0.0..1.0, step: 0.05 %>
+    <%= form.number_field :price, in: 0.0..1.0, step: 0.1 %>
     <% @activity.errors.full_messages_for(:price).each do |message| %>
       <div><%= message %></div>
     <% end %>
@@ -33,7 +22,7 @@
 
   <div>
     <%= form.label :accessibility %><br>
-    <%= form.number_field :accessibility, in: 0.0..1.0, step: 0.05 %>
+    <%= form.number_field :accessibility, in: 0.0..1.0, step: 0.1 %>
     <% @activity.errors.full_messages_for(:accessibility).each do |message| %>
       <div><%= message %></div>
     <% end %>
