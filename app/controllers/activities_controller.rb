@@ -20,7 +20,7 @@ class ActivitiesController < ApplicationController
       redirect_to @activity
     elsif @response["error"]
       flash.alert = @response["error"] + ". Please try other parameters."
-      render :new
+      redirect_to new_activity_path
     else
       render :new, status: :unprocessable_entity
     end
