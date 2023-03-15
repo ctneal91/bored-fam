@@ -53,13 +53,13 @@ class ActivitiesController < ApplicationController
     end
 
     def call_bored_api
-      # request = build_bored_api_request
-      response = HTTParty.get("https://www.boredapi.com/api/activity?").parsed_response
+      request = build_bored_api_request
+      response = HTTParty.get("https://www.boredapi.com/api/activity#{request}").parsed_response
       puts response.inspect
       @fetched_params = {
         name: response["activity"],
         category: response["type"],
-        participants: ["participants"],
+        participants: response["participants"],
         price: response["price"],
         link: response["link"],
         key: response["key"],
@@ -69,9 +69,11 @@ class ActivitiesController < ApplicationController
 
     def build_bored_api_request
       request = ""
-      request += "?participants=#{params[:participants]}" unless params[:participants].blank?
-      request += "?type=#{params[:category]}" unless params[:participants].blank?
-      request += "?price=#{params[:price]}" unless params[:price].blank?
-      request += "?price=#{params[:accessibility]}" unless params[:accessibility].blank?
+      request += "?type=#{params["activity"]["category"]}" unless params["activity"]["category"].blank?
+      request += "?participants=#{params["activity"]["participants"]}" unless params["activity"]["participants"].blank?
+      request += "?accessibility=#{params["activity"]["accessibility"].to_f.round(1)}" unless params["activity"]["accessibility"].blank?
+      request += "?price=#{params["activity"]["price"].to_f.round(1)}" unless params["activity"]["price"].blank?
+      puts request
+      return request
     end
 end
